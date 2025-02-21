@@ -99,7 +99,7 @@ public class ContaOccorrenzeParoleDaKeyboard {
 	
 	// Questa funzione crea una frase che contiene la parola con più occorrenze e il numero di occorrenze
 	private String getWordWhitMoreOccurrencesSentence(Map<String, Integer> wordsOccurrencesMap) {
-		System.out.println(wordsOccurrencesMap.entrySet());
+//		System.out.println(wordsOccurrencesMap.entrySet());
 		
 		String word = "";
 		int wordOccurrences = 0;
