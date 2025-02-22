@@ -16,7 +16,8 @@ public class ContaOccorrenzeParoleDaKeyboard {
 		Map<String, Integer> wordsOccurrences = new HashMap<>();
 		
 		// Leggo la stringa digitata dall'utente
-		String userString = readUserInputString();
+		Scanner sc = new Scanner(System.in);
+		String userString = readUserInputString(sc);
 		System.out.println("Stringa digitata: " + userString);
 		
 		// Splitto la stringa dell'utente
@@ -33,17 +34,16 @@ public class ContaOccorrenzeParoleDaKeyboard {
 		// Prendo la parola con più occorrenze e la stampo
 		String wordWhitMoreOccurrencesSentence = this.getWordWhitMoreOccurrencesSentence(wordsOccurrences);
 		System.out.println(wordWhitMoreOccurrencesSentence);
+		
+		sc.close();
 	}
 
 	
 	
 	
 	// Questa funzione legge la input dell'utente
-	private String readUserInputString() {
-		Scanner sc = new Scanner(System.in);
-		String inputString = sc.nextLine();	
-		sc.close();
-		return inputString;
+	private String readUserInputString(Scanner sc) {
+		return sc.nextLine();
 	}
 		
 	// Questa funzione splitta la stringa il separatore passati come argomenti
@@ -99,7 +99,6 @@ public class ContaOccorrenzeParoleDaKeyboard {
 	
 	// Questa funzione crea una frase che contiene la parola con più occorrenze e il numero di occorrenze
 	private String getWordWhitMoreOccurrencesSentence(Map<String, Integer> wordsOccurrencesMap) {
-//		System.out.println(wordsOccurrencesMap.entrySet());
 		
 		String word = "";
 		int wordOccurrences = 0;
