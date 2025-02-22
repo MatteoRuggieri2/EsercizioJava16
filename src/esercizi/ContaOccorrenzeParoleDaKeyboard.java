@@ -17,22 +17,23 @@ public class ContaOccorrenzeParoleDaKeyboard {
 		
 		// Leggo la stringa digitata dall'utente
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Inserisci più parole separati da uno o più spazi: ");
 		String userString = readUserInputString(sc);
-		System.out.println("Stringa digitata: " + userString);
+		System.out.println("\nStringa digitata: \"" + userString + "\"");
 		
 		// Splitto la stringa dell'utente
-		String[] userSplittedString = this.splitString(userString, " +");
+		String[] userSplittedString = splitString(userString.trim(), " +");
 		
 		// Funzione che crea la stringa con tutte le parole separate da virgola (,)
-		String wordListString = this.createWordListString(userSplittedString);
-		System.out.println(wordListString);
+		String wordListString = createWordListString(userSplittedString);
+		System.out.println("\n" + wordListString);
 		
 		// Conto le occorrenze
 		wordsOccurrences = occurrencesCounter(userSplittedString);
-		System.out.println("wordsOccurrences: " + wordsOccurrences);
+		System.out.println("Conteggio occorrenze: " + wordsOccurrences);
 		
 		// Prendo la parola con più occorrenze e la stampo
-		String wordWhitMoreOccurrencesSentence = this.getWordWhitMoreOccurrencesSentence(wordsOccurrences);
+		String wordWhitMoreOccurrencesSentence = getWordWhitMoreOccurrencesSentence(wordsOccurrences);
 		System.out.println(wordWhitMoreOccurrencesSentence);
 		
 		sc.close();
