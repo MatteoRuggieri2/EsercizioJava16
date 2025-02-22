@@ -24,7 +24,7 @@ public class ContaOccorrenzeParoleDaKeyboard {
 		// Splitto la stringa dell'utente
 		String[] userSplittedString = splitString(userString.trim(), " +");
 		
-		// Funzione che crea la stringa con tutte le parole separate da virgola (,)
+		// Funzione che crea la stringa con tutte le parole digitate
 		String wordListString = createWordListString(userSplittedString);
 		System.out.println("\n" + wordListString);
 		
@@ -52,7 +52,7 @@ public class ContaOccorrenzeParoleDaKeyboard {
 		return string.split(separator);
 	}
 	
-	// Questa funzione crea una lista delle stringhe passate come parametro sotto forma di array di stringhe
+	// Questa funzione crea una stringa con la lista delle parole digitate
 	private String createWordListString(String[] splittedString) {
 		
 		StringBuilder wordListString = new StringBuilder("");
@@ -64,18 +64,14 @@ public class ContaOccorrenzeParoleDaKeyboard {
 		return "Elenco delle parole digitate: \n" + wordListString.toString();
 	}
 	
-	// Questa funzione torna il numero di occorrenze
+	// Questa funzione ritorna una mappa con associazioni stringa-numero di occorrenze
 	private Map<String, Integer> occurrencesCounter(String[] arrStringsToCount) {
 		Map<String, Integer> occurrences = new HashMap<>();
 		
-		/* Per ogni parola dell'array:
-		 * - controllo se è presente la chiave
-		 * 
-		 * SE è presente incremento il valore ++
-		 * 
-		 * ALTRIMENTI creo un elemento e inizializzo il valore a 1
-		 * 
-		 * * * * */
+		/* Per ogni parola dell'array SE è presente la chiave incremento
+		 * il suo valore, altrimenti creo un nuovo elemento con la stringa
+		 * come chiave e inizializzo il valore a 1.
+		 */
 		for (String string : arrStringsToCount) {
 			
 			String stringLC = string.toLowerCase();
@@ -104,14 +100,10 @@ public class ContaOccorrenzeParoleDaKeyboard {
 		String word = "";
 		int wordOccurrences = 0;
 		
-		/* Per ogni parola dell'entrySet:
-		 * - controllo se è presente la chiave
-		 * 
-		 * SE è presente incremento il valore ++
-		 * 
-		 * ALTRIMENTI creo un elemento e inizializzo il valore a 1
-		 * 
-		 * * * * */
+		/* Per ogni parola dell'entrySet SE è presente la chiave
+		 * incremento il valore, ALTRIMENTI creo un elemento e 
+		 * inizializzo il valore a 1.
+		 */
 		for (Entry<String, Integer> singleWord : wordsOccurrencesMap.entrySet()) {
 			// Se il valore è maggiore di wordOccurrences salva la chiave e il valore
 			
@@ -122,7 +114,7 @@ public class ContaOccorrenzeParoleDaKeyboard {
 		}
 		
 		// Costruisco la stringa con "word" e "wordOccurrences"
-		return "La parola '" + word + "' è quella con più occorrenze: " + wordOccurrences;
+		return "La parola \"" + word + "\" è quella con più occorrenze: " + wordOccurrences;
 
 	}
  
